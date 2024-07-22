@@ -1,0 +1,27 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Validate Authentication Code</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="validatecodeForm" (ngSubmit)="oncodeSubmit()">
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="validatecodeForm.controls['codeusername'].dirty && validatecodeForm.hasError('required','codeusername')"> <span class="fa fa-user p-2"></span> <input formControlName="codeusername" type="text" placeholder="Username" required> </div>
+                            </div>
+                            <small *ngIf="validatecodeForm.controls['codeusername'].dirty && validatecodeForm.hasError('required','codeusername')" class="text-danger">*Username is required*</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="validatecodeForm.controls['code'].dirty && validatecodeForm.hasError('required','code')"> <span class="fa fa-key p-2"></span> <input formControlName="code" type="text" placeholder="code" required> </div>
+                            </div>
+                            <small *ngIf="validatecodeForm.controls['code'].dirty && validatecodeForm.hasError('required','code')" class="text-danger">*code is required*</small>
+                            
+                            <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Validate</button>                            
+                        </form>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
